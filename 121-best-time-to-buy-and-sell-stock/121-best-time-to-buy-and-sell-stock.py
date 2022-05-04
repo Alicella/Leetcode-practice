@@ -5,13 +5,30 @@ class Solution:
         max_profit = 0
         
         for p in prices[1:]:
-            # crt_lowest = min(crt_lowest, p)
-            # crt_highest = max(crt_highest, p)
             if p < crt_lowest:
                 crt_lowest = p
-            elif p > crt_lowest:
-                crt_highest = p
-                max_profit = max(max_profit, crt_highest - crt_lowest)      
-        
+            # elif p > crt_lowest:
+            #     crt_highest = p
+            #     max_profit = max(max_profit, crt_highest - crt_lowest)      
+            if p - crt_lowest > max_profit:
+                max_profit = p - crt_lowest
+            
         return max_profit
+    
+    # if the question asks the days and prices of selling/buying info:
+    
+#         for i, p in enumerate(prices):
+#             if p <= crt_lowest:
+#                 buy_day = i
+#                 crt_lowest = p
+#             elif p > crt_lowest:
+#                 sell_day = i
+#                 crt_highest = p
+#                 max_profit = max(max_profit, crt_highest - crt_lowest)
+
+#         res = {'day of buying: ': buy_day, 
+#                 'buying price: ': crt_lowest,
+#                 'day of selling: ': sell_day,
+#                 'selling price: ': crt_highest,
+#                 'profit: ': max_profit}
         
