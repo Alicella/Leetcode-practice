@@ -1,10 +1,10 @@
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
         # to maximize profit, buy at a lowest price and sell at a highest, profit = the difference
-        crt_lowest = prices[0]
+        crt_lowest = float('inf')
         max_profit = 0
         
-        for p in prices[1:]:
+        for p in prices:
             if p < crt_lowest:
                 crt_lowest = p
             # elif p > crt_lowest:
