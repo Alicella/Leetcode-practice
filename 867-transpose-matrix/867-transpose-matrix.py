@@ -1,9 +1,6 @@
 class Solution:
-    def transpose(self, matrix: List[List[int]]) -> List[List[int]]:
-        
-        
+    def transpose(self, matrix: List[List[int]]) -> List[List[int]]: 
         new_mx = []
-        
         width = len(matrix[0])
         height = len(matrix)
         
