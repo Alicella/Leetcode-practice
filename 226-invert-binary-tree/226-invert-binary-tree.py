@@ -10,38 +10,7 @@ class Solution:
             return root
  
         else:
-            return TreeNode(root.val, self.invertTree(root.right), self.invertTree(root.left))
-        
-#         queue = []
-#         queue.append((root.left, root.right))
-        
-#         while queue:
-#             l, r = queue.pop(0)
-#             if not l:
-#                 l = r
-#                 # queue.append((l.left, l.right))
-#             elif not r:
-#                 r = l
-#                 # queue.append((r.left, r.right))
-#             else:
-#             # tmp = l
-#             # l = r
-#             # r = tmp
-#                 l, r = r, l
-#                 queue.append((l.left, l.right))
-#                 queue.append((r.left, r.right))
-  
-#         return TreeNode(queue)
-                
-                
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+            # return TreeNode(root.val, self.invertTree(root.right), self.invertTree(root.left))
+            root.left, root.right = self.invertTree(root.right), self.invertTree(root.left)
+            return root
             
