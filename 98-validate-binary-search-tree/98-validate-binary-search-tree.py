@@ -25,19 +25,22 @@ class Solution:
 #         self.inorder(root.left, output)
 #         output.append(root.val)
 #         self.inorder(root.right, output)
-        output = self.in_tr(root)
+        output = []
+        self.in_tr(root, output)
         for i in range(1,len(output)):
             if output[i] <= output[i - 1]:
                 return False
         return True
         
         
-    def in_tr(self, root):        # !!!This is simply inorder traversal!!!
+    def in_tr(self, root, output = []):        # !!!This is simply inorder traversal!!!
         # """ Turn a tree into a list of nodes values"""           
         if not root:
             return []
         else:
-            return self.in_tr(root.left) + [root.val] + self.in_tr(root.right)
+            self.in_tr(root.left, output)
+            output.append(root.val)
+            self.in_tr(root.right, output)
 
         
             
