@@ -6,40 +6,40 @@
 #         self.right = right
 class Solution:
     def isValidBST(self, root: Optional[TreeNode]) -> bool:
-        output =[]
-        self.inorder(root, output)
+#         output =[]
+#         self.inorder(root, output)
         
-        for i in range(1, len(output)):
-            if output[i-1] >= output[i]:
-                return False
-        
-        return True
-    
-    # Time complexity of inorder traversal is O(n)
-    # Fun fact: Inorder traversal leads to a sorted array if it is 
-    # a Valid Binary Search. Tree.
-    def inorder(self, root, output):
-        if root is None:
-            return
-        
-        self.inorder(root.left, output)
-        output.append(root.val)
-        self.inorder(root.right, output)
-        
-        
-        
-        
-#         def in_tr(root):        # !!!This is simply inorder traversal!!!
-#             # """ Turn a tree into a list of nodes values"""           
-#             if not root:
-#                 return []
-#             else:
-#                 return in_tr(root.left) + [root.val] + in_tr(root.right)
-
-#         for i in range(1,len(in_tr(root))):
-#             if in_tr(root)[i] <= in_tr(root)[i - 1]:
+#         for i in range(1, len(output)):
+#             if output[i-1] >= output[i]:
 #                 return False
+        
 #         return True
+    
+#     # Time complexity of inorder traversal is O(n)
+#     # Fun fact: Inorder traversal leads to a sorted array if it is 
+#     # a Valid Binary Search. Tree.
+#     def inorder(self, root, output):
+#         if root is None:
+#             return
+        
+#         self.inorder(root.left, output)
+#         output.append(root.val)
+#         self.inorder(root.right, output)
+        output = self.in_tr(root)
+        for i in range(1,len(output)):
+            if output[i] <= output[i - 1]:
+                return False
+        return True
+        
+        
+    def in_tr(self, root):        # !!!This is simply inorder traversal!!!
+        # """ Turn a tree into a list of nodes values"""           
+        if not root:
+            return []
+        else:
+            return self.in_tr(root.left) + [root.val] + self.in_tr(root.right)
+
+        
             
             
             
