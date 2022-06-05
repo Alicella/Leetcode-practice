@@ -15,20 +15,19 @@ class Solution:
         if root.left:
             self.flatten(root.left)      #--------KEY!!!------
             
-            
             tail = root.left
             while tail.right:
                 tail = tail.right
 
             # add the right subtree to this leaf/tail
             tail.right = root.right
-            print('cur tail', tail) 
+            # print('cur tail', tail) 
             
             # move the flattened left subtree to right
             root.right = root.left
             root.left = None
 
-            print('cur_root', root)
+            # print('cur_root', root)
 
         self.flatten(root.right)
             
