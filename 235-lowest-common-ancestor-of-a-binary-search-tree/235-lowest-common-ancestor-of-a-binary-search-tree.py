@@ -12,10 +12,11 @@ class Solution:
         
         left = self.lowestCommonAncestor(root.left, p, q)
         right = self.lowestCommonAncestor(root.right, p, q)
-        
-        if root.val < min(p.val, q.val):
+        mi = min(p.val, q.val)
+        ma = max(p.val, q.val)
+        if root.val < mi:
             return right
-        elif root.val > max(p.val, q.val):
+        elif root.val > ma:
             return left
         else:
             return root
