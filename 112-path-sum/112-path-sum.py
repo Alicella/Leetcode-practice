@@ -8,49 +8,46 @@ class Solution:
     def hasPathSum(self, root: Optional[TreeNode], targetSum: int) -> bool:
         if not root:
             return False
-        self.paths = []
+        self.found = False
         
         def dfs(root, curSum):
-            # traverse a root to a leaf, updating curSum
-            
-            if not root:                    #how to return without returning false
+            if not root:
                 return
             curSum += root.val
-            # print(curSum)
             if not root.left and not root.right:
-                self.paths.append(curSum)
+                if curSum == targetSum:
+                    self.found = True
+                    return
                 curSum -= root.val
                 
             dfs(root.left, curSum)
             dfs(root.right, curSum)
         
         dfs(root, 0)
-        if targetSum in self.paths:
-            return True
+        return self.found
         
-        return False
         
-    
-    
-    
-    
-    
-    
-    
-#         curSum = 0
-#         leaves = []
-#         if root:
+#         if not root:
+#             return False
+#         self.paths = []
+        
+#         def dfs(root, curSum):
+#             # traverse a root to a leaf, updating curSum
+            
+#             if not root:                    #how to return without returning false
+#                 return
 #             curSum += root.val
+#             # print(curSum)
 #             if not root.left and not root.right:
-#                 # print('leaf', curSum)
-#                 if curSum == targetSum:
-#                     leaves.append(root.val)
-#                     return True
-#                 else:
-#                     curSum -= root.val
+#                 self.paths.append(curSum)
+#                 curSum -= root.val               
+#             dfs(root.left, curSum)
+#             dfs(root.right, curSum)
         
-#         self.hasPathSum(root.left, targetSum)
-#         self.hasPathSum(root.right, targetSum)
-
+#         dfs(root, 0)
+#         if targetSum in self.paths:
+#             return True
+#         return False
+        
                 
                 
