@@ -11,26 +11,26 @@ class Solution:
         
         self.paths = []
         
-        def dfs(root, targetSum, curPath):
+        def dfs(root, curSum, curPath):
             # traverse a root to a leaf, updating curSum and curPath
             
             if not root:                    
                 return
-            # curSum += root.val
+            curSum += root.val
             curPath.append(root.val)
             
             if not root.left and not root.right:    # Arriving at a leaf
-                # if curSum == targetSum: 
-                if root.val == targetSum:
+                if curSum == targetSum: 
+                # if root.val == targetSum:
                     self.paths.append(curPath[:])
                 # whether find the target sum or not, need to remove this leaf node
-                # curSum -= root.val
+                curSum -= root.val
                 # curPath.pop()
             else:
-                dfs(root.left, targetSum - root.val, curPath)
-                dfs(root.right, targetSum - root.val, curPath)
+                dfs(root.left, curSum, curPath)
+                dfs(root.right, curSum, curPath)
             curPath.pop()
         
-        dfs(root, targetSum, [])
+        dfs(root, 0, [])
         return self.paths
         
