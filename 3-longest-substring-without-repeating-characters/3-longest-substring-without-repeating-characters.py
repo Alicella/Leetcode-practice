@@ -16,21 +16,23 @@ class Solution:
         seen = {}
         l = 0
         
-#         for r in range(len(s)):
-#             if s[r] not in seen:
-#                 max_len = max(max_len, r-l+1)
-#             else:
-#                 if seen[s[r]] < l:
-#                     max_len = max(max_len, r-l+1)
-#                 else:
-#                     l = seen[s[r]] + 1
+        for r in range(len(s)):
+            if s[r] not in seen:
+                max_len = max(max_len, r-l+1)
+            else:
+                if seen[s[r]] < l:
+                    max_len = max(max_len, r-l+1)
+                else:
+                    l = seen[s[r]] + 1
             
-#             seen[s[r]] = r                        
+            seen[s[r]] = r                        
         
         left = 0
         for right, c in enumerate(s):
             if c in seen:
-                left = max(left, seen[c] + 1)
+                if seen[c] + 1 > left:
+                    left = seen[c] + 1
+                # left = max(left, seen[c] + 1)
             max_len = max(max_len, right - left + 1)
             seen[c] = right
         
