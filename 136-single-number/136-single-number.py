@@ -17,10 +17,9 @@ class Solution:
             if i not in tmp:
                 tmp[i] = 1
             else:
-                tmp[i] -= 1
+                del tmp[i]
         
-        for k,v in tmp.items():
-            if v != 0:
-                return k        
+        for k in tmp.keys():
+            return k        
          
                 
