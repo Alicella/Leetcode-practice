@@ -12,14 +12,20 @@ class Solution:
         
 #         return tmp[0]
         
-        tmp = {}
-        for i in nums:
-            if i not in tmp:
-                tmp[i] = 1
-            else:
-                del tmp[i]
+        # tmp = {}
+#         for i in nums:
+#             if i not in tmp:
+#                 tmp[i] = 1
+#             else:
+#                 del tmp[i]
         
-        for k in tmp.keys():
-            return k        
+#         for k in tmp.keys():
+#             return k 
+        dic = {}
+        for num in nums:
+            dic[num] = dic.get(num, 0) + 1
+        for key, val in dic.items():
+            if val == 1:
+                return key
          
                 
