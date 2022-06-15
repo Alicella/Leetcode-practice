@@ -3,12 +3,24 @@ class Solution:
         # loop over the list, create a new list to store numbers met
         # if met a repeated num, delete the num in the list (n/2 space?)
         
-        tmp = []
+#         tmp = []
+#         for i in nums:
+#             if i not in tmp:
+#                 tmp.append(i)
+#             else:
+#                 tmp.remove(i)
+        
+#         return tmp[0]
+        
+        tmp = {}
         for i in nums:
             if i not in tmp:
-                tmp.append(i)
+                tmp[i] = 1
             else:
-                tmp.remove(i)
+                tmp[i] -= 1
         
-        return tmp[0]
+        for k,v in tmp.items():
+            if v != 0:
+                return k        
+         
                 
