@@ -1,11 +1,13 @@
 class Solution:
     def singleNumber(self, nums: List[int]) -> int:
         
-        xor = 0
-        for num in nums:
-            xor ^= num
+#         xor = 0
+#         for num in nums:
+#             xor ^= num
         
-        return xor
+#         return xor
+        
+        return reduce(operator.xor, nums)
         
         
         # loop over the list, create a new list to store numbers met
