@@ -13,15 +13,16 @@ class Solution:
                 return f(ListNode(), l2, lsum)    
             elif not l2:
                 return f(l1, ListNode(), lsum) 
-                
-            lsum.val += (l1.val + l2.val) % 10
+            
+            ttl = l1.val + l2.val
+            lsum.val += ttl % 10
 
-            if l1.next or l2.next or l1.val + l2.val >= 10:
-                lsum.next = ListNode((l1.val + l2.val) // 10)
+            if l1.next or l2.next or ttl >= 10:
+                lsum.next = ListNode(ttl // 10)
             
             if lsum.val >= 10:
                 lsum.val -= 10
-                lsum.next = ListNode((l1.val + l2.val) // 10 + 1)
+                lsum.next = ListNode(ttl // 10 + 1)
                 
             return f(l1.next, l2.next, lsum.next)
         
