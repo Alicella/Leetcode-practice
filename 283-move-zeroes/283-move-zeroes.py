@@ -3,15 +3,23 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        n = len(nums) - 1
-        i = 0
-        while i < n:
-            if nums[i] == 0:
-                nums.insert(len(nums), 0)
-                nums.pop(i)
-                n -= 1
-            else:
-                i += 1
+        
+        l = 0
+        for r in range(len(nums)):
+            if nums[r]:
+                nums[l], nums[r] = nums[r], nums[l]
+                l += 1
+        
+        
+        # n = len(nums) - 1
+        # i = 0
+        # while i < n:
+        #     if nums[i] == 0:
+        #         nums.insert(len(nums), 0)
+        #         nums.pop(i)
+        #         n -= 1
+        #     else:
+        #         i += 1
                 
                 
         
