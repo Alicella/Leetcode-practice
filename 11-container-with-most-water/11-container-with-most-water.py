@@ -11,14 +11,7 @@ class Solution:
                 left += 1
             else:
                 right -= 1
-        
-        
-        # max_area = 0
-        # for i in range(1,len(height)):
-        #     for k in range(i):
-        #         cur_area = min(height[k], height[i]) * (i-k)
-        #         if cur_area > max_area:
-        #             max_area = cur_area
+
         
     
         return max_area
