@@ -2,17 +2,17 @@ class Solution:
     def pivotIndex(self, nums: List[int]) -> int:
         # total sum of the array:
         total = sum(nums)
-        
+        cur_sum = 0
         # at the pivot index,
         # its left sum == right sum == (total - pivot num) / 2
         for i in range(len(nums)):
             target_sum = (total - nums[i]) / 2
-            if sum(nums[0:i]) == target_sum:
+            if cur_sum == target_sum:
                 return i
-            elif i == 0 and target_sum == 0:
-                return i
-        else:
-            return -1
+            cur_sum += nums[i]
+            
+        
+        return -1
         
         
         
