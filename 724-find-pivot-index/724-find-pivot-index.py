@@ -1,12 +1,28 @@
 class Solution:
     def pivotIndex(self, nums: List[int]) -> int:
+        # total sum of the array:
+        total = sum(nums)
         
+        # at the pivot index,
+        # its left sum == right sum == (total - pivot num) / 2
         for i in range(len(nums)):
-            left_sum = sum(nums[0:i])
-            right_sum = sum(nums[i+1:])
-            if left_sum == right_sum:
+            target_sum = (total - nums[i]) / 2
+            if sum(nums[0:i]) == target_sum:
                 return i
-            elif i == 0 and right_sum == 0:
-                return 0
-            
-        return -1
+            elif i == 0 and target_sum == 0:
+                return i
+        else:
+            return -1
+        
+        
+        
+        
+        # O(n^2) solution:
+        # for i in range(len(nums)):
+        #     left_sum = sum(nums[0:i])
+        #     right_sum = sum(nums[i+1:])
+        #     if left_sum == right_sum:
+        #         return i
+        #     elif i == 0 and right_sum == 0:
+        #         return 0
+        # return -1
