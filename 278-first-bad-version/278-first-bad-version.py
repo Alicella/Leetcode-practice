@@ -7,10 +7,11 @@ class Solution:
         hi = n
         
         while lo < hi:
-            mid = lo + (hi - lo) / 2
+            mid = lo + (hi - lo) // 2
             if isBadVersion(mid):
                 hi = mid
             else:
                 lo = mid + 1
         
-        return int(hi)
+        # not return mid because
+        return hi
