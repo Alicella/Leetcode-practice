@@ -10,33 +10,43 @@ class Solution:
         # square.sort()         # O(nlogn)!!!!!!!!!!!!!!!!
         # return square
         
-        # Two pointers: 
+        # !!! Two pointers: 
         # Abs values of nums is "V" shape, or "\" or "/" shape
         # compare and insert the left and right most nums ^2 in order
-        # l and r move inwards---- once a time!!!
-
-            
+        # l and r move inwards---- once a time!!! NOT at the same time!!
+        # better not to use list.insert(0, XX) since it's O(n), not efficient
        
+        # l = 0
+#         r = len(nums) - 1
+#         w = len(nums) - 1    # the writing pointer
+#         square = [0] * len(nums)
+        
+#         while w >= 0:
+#             if abs(nums[l]) > abs(nums[r]):
+#                 square[w] = nums[l] ** 2
+#                 l += 1
+#             else:
+#                 square[w] = nums[r] ** 2
+#                 r -= 1
+#             w -= 1
+        
+#         return square
+
+        # !!! deque function
+        
+        square = collections.deque()
         l = 0
         r = len(nums) - 1
-        w = len(nums) - 1    # the writing pointer
-        square = [0] * len(nums)
         
-        while w >= 0:
+        while l <= r:
             if abs(nums[l]) > abs(nums[r]):
-                square[w] = nums[l] ** 2
+                square.appendleft(nums[l] ** 2)
                 l += 1
             else:
-                square[w] = nums[r] ** 2
+                square.appendleft(nums[r] ** 2)
                 r -= 1
-            w -= 1
         
-        return square
-
-        
-        
-        
-        
+        return list(square)
         
         
         
