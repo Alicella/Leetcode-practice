@@ -5,9 +5,10 @@ class Solution:
         """
         
         # NO.1 use list insert method:
-        
-        i = -1 
-        while i >= -k:
+        # O(n * k)
+      
+        for i in range(-1, -k - 1, -1):
             rotated_el = nums.pop()
             nums.insert(0, rotated_el)
-            i -= 1
+        
+        
