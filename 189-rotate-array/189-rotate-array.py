@@ -4,19 +4,25 @@ class Solution:
         Do not return anything, modify nums in-place instead.
         """
         
-        # No.3 rotate left by n-k steps?
-
+        # No.4 use slicing 
+        # reference: https://leetcode.com/problems/rotate-array/discuss/54294/My-solution-by-using-Python
         n = len(nums)
-        if n > k:
-            for i in range(n - k):
-                nums.append(nums.pop(0))
-        else:
-           # in the first k // n times,
-           # rotating just doesn't make change to nums.
-           # actual_rotation = k % n
-            for i in range(n - k % n):
-                nums.append(nums.pop(0))
+        k = k % n
+        nums[:] = nums[n-k:] + nums[:n-k]
         
+        
+        # No.3 rotate left by n-k steps
+
+        # n = len(nums)
+        # if n > k:
+        #     for i in range(n - k):
+        #         nums.append(nums.pop(0))
+        # else:
+        #    # in the first k // n times,
+        #    # rotating just doesn't make change to nums.
+        #    # actual rotating to right is k % n times
+        #     for i in range(n - k % n):
+        #         nums.append(nums.pop(0))    
         
         
         # No.2 use collection.deque... doesn't work
