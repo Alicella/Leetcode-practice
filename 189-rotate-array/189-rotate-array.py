@@ -3,12 +3,34 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
+        # No.5 use reverse method with O(1) space and O(n) runtime
+        n = len(nums)
+        k = k % n
+        
+        self.reverse(nums, 0, n - 1)
+        self.reverse(nums, 0, k - 1)
+        self.reverse(nums, k, n - 1)
+        
+    def reverse(self, nums, start, end) -> None:
+        l = start
+        r = end
+        while l < r:
+            nums[l], nums[r] = nums[r], nums[l]
+            l, r = l + 1, r - 1
+        
+        
+        
+        
+        
+        
         
         # No.4 use slicing 
         # reference: https://leetcode.com/problems/rotate-array/discuss/54294/My-solution-by-using-Python
-        n = len(nums)
-        k = k % n
-        nums[:] = nums[n-k:] + nums[:n-k]
+        # n = len(nums)
+        # k = k % n
+        # nums[:] = nums[n-k:] + nums[:n-k]
+        # or below
+        # nums[:] = nums[-k:] + nums[:-k] 
         
         
         # No.3 rotate left by n-k steps
