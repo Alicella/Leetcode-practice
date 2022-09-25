@@ -1,6 +1,29 @@
 class Solution:
     def search(self, nums: List[int], target: int) -> int:
         
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         # initialize the boundaries
         lo = 0
         hi = len(nums) - 1
@@ -22,10 +45,10 @@ class Solution:
         #     return mid
         # elif target < nums[mid]:
         #     hi = mid - 1
-        #     return self.search(nums[lo:mid], target)
+        #     return self.search(nums[lo:hi], target)
         # else:
         #     lo = mid + 1
-        #     return self.search(nums[mid:hi], target)
+        #     return self.search(nums[lo:hi], target)
     
         # why I didn't solve it the first time: 
         # 1) Forgot how to update index after resize the array
