@@ -13,5 +13,6 @@ class Solution:
             else:
                 lo = mid + 1
         
-        # not return mid because
+        # not return mid because after the if/else operation,
+        # mid can get smaller by 1 when it exits the loop
         return hi
