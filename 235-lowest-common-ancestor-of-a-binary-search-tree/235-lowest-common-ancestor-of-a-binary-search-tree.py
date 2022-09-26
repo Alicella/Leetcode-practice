@@ -9,6 +9,16 @@ class Solution:
     def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
         
         
+        # using pointers
+        cur = root
+        if not cur: return
+        
+        if p.val > root.val and q.val > root.val:
+            cur = cur.right
+        elif p.val < root.val and q.val < root.val:
+            cur = cur.left
+        else:
+            return cur
         
         
         
