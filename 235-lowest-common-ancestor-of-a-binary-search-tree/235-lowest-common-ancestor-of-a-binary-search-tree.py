@@ -11,14 +11,14 @@ class Solution:
         
         # using pointers
         cur = root
-        if not cur: return
         
-        if p.val > root.val and q.val > root.val:
-            cur = cur.right
-        elif p.val < root.val and q.val < root.val:
-            cur = cur.left
-        else:
-            return cur
+        while cur:
+            if p.val > root.val and q.val > root.val:
+                cur = cur.right
+            elif p.val < root.val and q.val < root.val:
+                cur = cur.left
+            else:
+                return cur
         
         
         
