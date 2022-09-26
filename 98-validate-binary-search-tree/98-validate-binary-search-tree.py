@@ -6,50 +6,66 @@
 #         self.right = right
 class Solution:
     def isValidBST(self, root: Optional[TreeNode]) -> bool:
-#         output =[]
-#         self.inorder(root, output)
         
-#         for i in range(1, len(output)):
-#             if output[i-1] >= output[i]:
-#                 return False
-        
-#         return True
-    
-#     # Time complexity of inorder traversal is O(n)
-#     # Fun fact: Inorder traversal leads to a sorted array if it is 
-#     # a Valid Binary Search. Tree.
-#     def inorder(self, root, output):
-#         if root is None:
-#             return
-        
-#         self.inorder(root.left, output)
-#         output.append(root.val)
-#         self.inorder(root.right, output)
-        output = []
-        self.in_tr(root, output)
-        for i in range(1,len(output)):
-            if output[i] <= output[i - 1]:
+        # helper function to check if node val is in defined range
+        def checkNode(node, minVal, maxVal):
+            if not node: return True
+            
+            if node.val <= minVal or node.val >= maxVal:
                 return False
+            else:
+                return checkNode(node.left, minVal, node.val) and checkNode(node.right, node.val, maxVal)
+        
+        # base case : only 1 node
+        if not root.left and not root.right: return True
+        
+        return checkNode(root.left, -2147483649, root.val) and checkNode(root.right, root.val, 2147483648)
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+          
+        output =[]
+        self.inorder(root, output)
+        
+        for i in range(1, len(output)):
+            if output[i-1] >= output[i]:
+                return False
+        
         return True
-        
-        
-    def in_tr(self, root, output = []):        # !!!This is simply inorder traversal!!!
-        # """ Turn a tree into a list of nodes values"""           
-        if not root:
-            return []
-        else:
-            self.in_tr(root.left, output)
-            output.append(root.val)
-            self.in_tr(root.right, output)
+    
+    # Time complexity of inorder traversal is O(n)
+    # Fun fact: Inorder traversal leads to a sorted array if it is 
+    # a Valid Binary Search. Tree.
+    def inorder(self, root, output):
+        if root is None:
+            return        
+        self.inorder(root.left, output)
+        output.append(root.val)
+        self.inorder(root.right, output)
 
         
-            
-            
-            
-#         
-#         else:
-#             return self.isValidBST(root.left) and self.isValidBST(root.right)
-            
+    # def isValidBST(self, root: Optional[TreeNode]) -> bool:                
 #         def validate(root, low = -math.inf, high = math.inf):
 #             if not root:
 #                 return True
