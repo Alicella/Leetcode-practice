@@ -19,28 +19,9 @@ class Solution:
         # base case : only 1 node
         if not root.left and not root.right: return True
         
-        return checkNode(root.left, -2147483649, root.val) and checkNode(root.right, root.val, 2147483648)
+        return checkNode(root.left, -math.inf, root.val) and checkNode(root.right, root.val, math.inf)
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+                
         
         
         
