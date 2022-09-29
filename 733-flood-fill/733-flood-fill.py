@@ -9,12 +9,13 @@ class Solution:
             return image
         
         def dfs(r, c):
-            if image[r][c] == color:
+            if 0 <= r < m and 0 <= c < n and image[r][c] == color:
                 image[r][c] = new_color
-                if r - 1 >= 0: dfs(r-1, c)
-                if r + 1 < m: dfs(r+1, c)
-                if c - 1 >= 0: dfs(r, c-1)
-                if c + 1 < n: dfs(r, c+1)
+                
+                dfs(r-1, c)
+                dfs(r+1, c)
+                dfs(r, c-1)
+                dfs(r, c+1)
         
         dfs(sr, sc)
         return image
