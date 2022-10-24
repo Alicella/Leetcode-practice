@@ -1,5 +1,22 @@
 class Solution:
     def sortedSquares(self, nums: List[int]) -> List[int]:
+        
+        squared = deque()
+        l, r = 0, len(nums) - 1
+        while l <= r:
+            lsquare = nums[l] * nums[l]
+            rsquare = nums[r] * nums[r]
+            if lsquare >= rsquare:
+                squared.appendleft(lsquare) 
+                l += 1
+            else:
+                squared.appendleft(rsquare) 
+                r -= 1
+        return list(squared)
+        
+        
+        
+        
         squared = []
         l, r = 0, len(nums) - 1
         while l <= r:
@@ -13,6 +30,8 @@ class Solution:
                 r -= 1
         
         return squared
+        
+        
         
         
         
