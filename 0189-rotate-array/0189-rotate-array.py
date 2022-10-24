@@ -4,11 +4,18 @@ class Solution:
         Do not return anything, modify nums in-place instead.
         """
         
-        for _ in range(k):
-            last = nums.pop()
-            nums.insert(0, last)
+        # O(k) * O(n)
+        # for _ in range(k):
+        #     last = nums.pop()
+        #     nums.insert(0, last)
+            
+        n = len(nums)
+        k = k % n
         
-        
+        # move the first (n-k) elements to back
+        for _ in range(n - k):
+            first = nums.pop(0)
+            nums.append(first)
         
         
         
