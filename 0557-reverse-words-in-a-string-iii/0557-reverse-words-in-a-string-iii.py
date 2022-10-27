@@ -1,7 +1,24 @@
 class Solution:
     def reverseWords(self, s: str) -> str:
         
-        return " ".join([word[::-1] for word in s.split()])
+        l = r = 0
+        s += ' '
+        s_reversed = ''
+        
+        while r < len(s):
+            if s[r] != ' ':
+                r += 1
+            else:
+                s_reversed += s[l: r+1][::-1]
+                r += 1
+                l = r
+                
+        return s_reversed[1:]
+        
+        
+        
+        
+        # return " ".join([word[::-1] for word in s.split()])
         
         # split the string by whitespace, into a list
         sentence_li = s.split(" ")
