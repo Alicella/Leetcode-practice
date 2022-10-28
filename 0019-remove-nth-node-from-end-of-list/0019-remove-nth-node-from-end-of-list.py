@@ -13,19 +13,17 @@ class Solution:
             r = r.next
          
         # now the distance btw l pointer and r pointer is n - 1
+        # move pre, l, r pointer until r is at the end
         while r.next:
             pre = l
             l = l.next
             r = r.next
         
-        if l == head:    # if l still points to head, then pre also points to head
-            head = pre.next
-        elif l != r:     
-            pre.next = l.next    # remove the node that l points to
-            
-        # elif pre == r:     # only one element in the linked list, remove the single node
-        #     head = None
-        else:
-            pre.next = None  # l == r, need to remove the last node, so pre points to none
-            
+        if l == head:    # need to remove the head node
+            head = l.next
+        elif l == r:       # need to remove the last node, so pre points to none
+            pre.next = None                 
+        else:                 # remove the middle node that l points to
+            pre.next = l.next    
+             
         return head
