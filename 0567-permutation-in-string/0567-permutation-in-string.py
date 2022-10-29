@@ -9,32 +9,42 @@ class Solution:
             s1Count[ord(s1[i]) - ord('a')] += 1
             s2Count[ord(s2[i]) - ord('a')] += 1
         
-        matches = 0
-        for i in range(26):
-            matches += (1 if s1Count[i] == s2Count[i] else 0)
+#         matches = 0
+#         for i in range(26):
+#             matches += (1 if s1Count[i] == s2Count[i] else 0)
         
-        l = 0
-        for r in range(len(s1), len(s2)):
-            if matches == 26:
+#         l = 0
+#         for r in range(len(s1), len(s2)):
+#             if matches == 26:
+#                 return True
+            
+#             index = ord(s2[r]) - ord('a')
+#             s2Count[index] += 1
+#             if s1Count[index] == s2Count[index]:
+#                 matches += 1
+#             elif s1Count[index] + 1 == s2Count[index]:
+#                 matches -= 1
+            
+#             index = ord(s2[l]) - ord('a')
+#             s2Count[index] -= 1
+#             if s1Count[index] == s2Count[index]:
+#                 matches += 1
+#             elif s1Count[index] - 1 == s2Count[index]:
+#                 matches -= 1
+            
+#             l += 1
+        
+#         return matches == 26
+
+#https://leetcode.com/problems/permutation-in-string/discuss/1761953/Python3-SLIDING-WINDOW-OPTIMIZED-(-)-Explained
+        for i in range(len(s2) - len(s1)):
+            if s1Count == s2Count:
                 return True
             
-            index = ord(s2[r]) - ord('a')
-            s2Count[index] += 1
-            if s1Count[index] == s2Count[index]:
-                matches += 1
-            elif s1Count[index] + 1 == s2Count[index]:
-                matches -= 1
-            
-            index = ord(s2[l]) - ord('a')
-            s2Count[index] -= 1
-            if s1Count[index] == s2Count[index]:
-                matches += 1
-            elif s1Count[index] - 1 == s2Count[index]:
-                matches -= 1
-            
-            l += 1
+            s2Count[ord(s2[i]) - ord('a')] -= 1
+            s2Count[ord(s2[i + len(s1)]) - ord('a')] += 1
         
-        return matches == 26
+        return s1Count == s2Count
         
         
         
