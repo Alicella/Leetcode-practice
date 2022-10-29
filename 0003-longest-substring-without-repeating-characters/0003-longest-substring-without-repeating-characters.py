@@ -6,18 +6,23 @@ class Solution:
     
         l, r = 0, 1
         longest = 1
-        window = [s[l]]
+        # window = [s[l]]
         
         while r < len(s):  
-            if s[r] not in window:
-                window.append(s[r])
+#             if s[r] not in window:
+#                 window.append(s[r])
+#                 longest = max(longest, r - l + 1)
+#                 r += 1
+            
+#             else:
+#                 l += 1
+#                 window = window[1:]
+               
+            if s[r] not in s[l:r]:
                 longest = max(longest, r - l + 1)
                 r += 1
-            
             else:
                 l += 1
-                window = window[1:]
-               
             
         return longest   
         
