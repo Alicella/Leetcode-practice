@@ -18,7 +18,8 @@ class Solution:
         # O(m*n)
         for r in range(m):
             for c in range(n):
-                max_area = max(dfs(r, c), max_area)
+                if grid[r][c] == 1:
+                    max_area = max(dfs(r, c), max_area)
     
         return max_area
         
