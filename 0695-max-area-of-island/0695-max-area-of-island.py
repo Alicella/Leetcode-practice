@@ -16,10 +16,11 @@ class Solution:
             return 1 + dfs(r - 1, c) + dfs(r + 1, c) + dfs(r, c - 1) + dfs(r, c + 1)     # !!!!!!!!!!
         
         # O(m*n)
-        for r in range(m):
-            for c in range(n):
-                if grid[r][c] == 1:
-                    max_area = max(dfs(r, c), max_area)
+        # for r in range(m):
+        #     for c in range(n):
+        for r, c in product(range(m), range(n)):
+            if grid[r][c]:
+                max_area = max(dfs(r, c), max_area)
     
         return max_area
         
